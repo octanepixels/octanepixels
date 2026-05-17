@@ -1,205 +1,191 @@
-<html lang="en"><head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-        <meta name="keywords" content="">
-		<title>Mono - Creative Multi-Purpose HTML5 Template</title>
-		<!-- Favicon -->
-        <link href="../assets/images/favicon.png" rel="shortcut icon">
-		<!-- CSS -->
-		<link href="../assets/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
-		<link href="../assets/plugins/owl-carousel/owl.carousel.min.css" rel="stylesheet">
-		<link href="../assets/plugins/owl-carousel/owl.theme.default.min.css" rel="stylesheet">
-		<link href="../assets/plugins/magnific-popup/magnific-popup.min.css" rel="stylesheet">
-		<link href="../assets/css/app.min.css" rel="stylesheet">
-		<!-- Fonts/Icons -->
-		<link href="../assets/plugins/font-awesome/css/all.css" rel="stylesheet">
-		<link href="../assets/plugins/themify/themify-icons.min.css" rel="stylesheet">
-	<script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/35/2/common.js"></script><script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/35/2/util.js"></script></head>
-	<body data-preloader="2" class="loaded">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>octanepixels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #08080c;
+      --surface: #111118;
+      --border: #1e1e2a;
+      --text: #f0f0f5;
+      --muted: #5a5a72;
+      --accent: #6c5ce7;
+      --green: #00d2a0;
+    }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
 
-		<header>
-			<nav class="navbar navbar-absolute-dark">
-				<div class="container">
-					<a class="navbar-brand" href="/">
-						<h5>Mono</h5>
-					</a>
-					<!-- Toggle button of Fullscreen menu -->
-					<button class="fullscreen-toggle-btn">
-			            <span class="lines"></span>
-			        </button>
-				</div><!-- end container -->
-			</nav>
-			<div class="fullscreen-menu">
-				<div class="fullscreen-menu-wrapper text-center">
-					<div class="position-top">
-						<h4>Mono</h4>
-					</div>
-					<div class="position-middle">
-						<ul>
-							<li><a href="/"><h2>Home</h2></a></li>
-							<li><a href="/Pages/About/About-us.html"><h2>About</h2></a></li>
-							<li><a href="/Home/Portfolio-Classic.html"><h2>Portfolio</h2></a></li>
-							<li><a href="/Home/Blog-Classic.html"><h2>Blog</h2></a></li>
-							<li><a href="/Home/Shop-Classic.html"><h2>Shop</h2></a></li>
-						</ul>
-					</div>
-					<div class="position-bottom">
-						<ul class="list-horizontal-unstyled icon-lg">
-							<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-							<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-						</ul>
-						<p class="margin-top-20">© 2018 FlaTheme, All Rights Reserved.</p>
-					</div>
-				</div><!-- end fullscreen-menu-wrapper -->
-			</div><!-- end fullscreen-menu -->
+    /* Animated gradient background */
+    .bg-gradient {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background: 
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(108,92,231,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(0,210,160,0.05) 0%, transparent 50%),
+        radial-gradient(ellipse 40% 50% at 10% 60%, rgba(108,92,231,0.04) 0%, transparent 50%);
+    }
 
-			<!-- Page header -->
-			<div class="section-lg">
-				<div class="container text-center">
-					<div class="row">
-						<div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-							<h1 class="display-4 font-weight-bold margin-bottom-20">Hello!</h1>
-							<h3 class="font-weight-thin no-margin">Designers, photographers and all creatives this template is built for you.</h3>
-						</div>
-					</div><!-- end row -->
-				</div><!-- end container -->
-			</div>
-		</header>
+    /* Noise texture */
+    .bg-gradient::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: 0.4;
+    }
 
-		<!-- Portfolio section -->
-		<div class="section no-padding">
-			<div class="container-fluid">
-				<div class="portfolio-wrapper column-3 spacing-20" style="position: relative; height: 930.063px;">
-					<!-- Portfolio box 1 -->
-					<div class="portfolio-item category-1" style="position: absolute; left: 0px; top: 0px;">
-						<div class="portfolio-box">
-							<div class="portfolio-img">
-								<img src="../assets/images/portfolio-minimal-1.jpg" alt="">
-							</div>
-							<a href="#"></a><!-- Portfolio Single link -->
-							<div class="portfolio-title">
-								<div>
-									<h5>Point &amp; shoot camera</h5>
-									<span>Category</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Portfolio box 2 -->
-					<div class="portfolio-item category-2" style="position: absolute; left: 427px; top: 0px;">
-						<div class="portfolio-box">
-							<div class="portfolio-img">
-								<img src="../assets/images/portfolio-minimal-2.jpg" alt="">
-							</div>
-							<a href="#"></a><!-- Portfolio Single link -->
-							<div class="portfolio-title">
-								<div>
-									<h5>Space grey phone</h5>
-									<span>Category</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Portfolio box 3 -->
-					<div class="portfolio-item category-3" style="position: absolute; left: 855px; top: 0px;">
-						<div class="portfolio-box">
-							<div class="portfolio-img">
-								<img src="../assets/images/portfolio-minimal-3.jpg" alt="">
-							</div>
-							<a href="#"></a><!-- Portfolio Single link -->
-							<div class="portfolio-title">
-								<div>
-									<h5>Sunglasses</h5>
-									<span>Category</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Portfolio box 4 -->
-					<div class="portfolio-item category-2" style="position: absolute; left: 427px; top: 353px;">
-						<div class="portfolio-box">
-							<div class="portfolio-img">
-								<img src="../assets/images/portfolio-minimal-4.jpg" alt="">
-							</div>
-							<a href="#"></a><!-- Portfolio Single link -->
-							<div class="portfolio-title">
-								<div>
-									<h5>Red notebook</h5>
-									<span>Category</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Portfolio box 5 -->
-					<div class="portfolio-item category-1" style="position: absolute; left: 0px; top: 576px;">
-						<div class="portfolio-box">
-							<div class="portfolio-img">
-								<img src="../assets/images/portfolio-minimal-5.jpg" alt="">
-							</div>
-							<a href="#"></a><!-- Portfolio Single link -->
-							<div class="portfolio-title">
-								<div>
-									<h5>Pencils</h5>
-									<span>Category</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Portfolio box 6 -->
-					<div class="portfolio-item category-3" style="position: absolute; left: 855px; top: 576px;">
-						<div class="portfolio-box">
-							<div class="portfolio-img">
-								<img src="../assets/images/portfolio-minimal-6.jpg" alt="">
-							</div>
-							<a href="#"></a><!-- Portfolio Single link -->
-							<div class="portfolio-title">
-								<div>
-									<h5>Dark grey phone</h5>
-									<span>Category</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div><!-- end portfolio-wrapper-->
-			</div><!-- end container -->
-		</div>
-		<!-- end Portfolio section -->
+    .container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2rem;
+    }
 
-		<footer>
-			<div class="footer">
-				<div class="container text-center">
-					<ul class="list-horizontal-unstyled margin-bottom-20">
-						<li><a class="hyperlink-5" href="#">Facebook</a></li>
-						<li><a class="hyperlink-5" href="#">Twitter</a></li>
-						<li><a class="hyperlink-5" href="#">Behance</a></li>
-					</ul>
-					<p>© 2018 FlaTheme, All Rights Reserved.</p>
-				</div><!-- end container -->
-			</div>
-		</footer>
+    .logo {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--text) 0%, var(--muted) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-		<!-- ***** JAVASCRIPTS ***** -->
-		<!-- Libraries -->
-		<script src="../assets/plugins/jquery.min.js"></script>
-		<script src="../assets/plugins/bootstrap/popper.min.js"></script>
-		<!-- Plugins -->
-		<script src="../assets/plugins/bootstrap/bootstrap.min.js"></script>
-		<script src="../assets/plugins/appear.min.js"></script>
-		<script src="../assets/plugins/easing.min.js"></script>
-		<script src="../assets/plugins/retina.min.js"></script>
-		<script src="../assets/plugins/countdown.min.js"></script>
-		<script src="../assets/plugins/imagesloaded.pkgd.min.js"></script>
-		<script src="../assets/plugins/isotope.pkgd.min.js"></script>
-		<script src="../assets/plugins/jarallax/jarallax.min.js"></script>
-		<script src="../assets/plugins/jarallax/jarallax-video.min.js"></script>
-		<script src="../assets/plugins/magnific-popup/magnific-popup.min.js"></script>
-		<script src="../assets/plugins/owl-carousel/owl.carousel.min.js"></script>
-		<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-		<script src="../assets/plugins/gmaps.min.js"></script>
-		<!-- Scripts -->
-		<script src="../assets/js/functions.min.js"></script>
-	
-<div class="preloader preloader-2"><div><svg class="loader-circular" viewBox="25 25 50 50"><circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle></svg></div></div></body></html>
+    .tagline {
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      color: var(--muted);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      margin-bottom: 3rem;
+    }
+
+    .links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.4rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.25s ease;
+    }
+
+    .links a:hover {
+      border-color: var(--accent);
+      background: rgba(108,92,231,0.08);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(108,92,231,0.1);
+    }
+
+    .links a svg {
+      width: 18px;
+      height: 18px;
+      opacity: 0.7;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--border);
+      margin: 2.5rem auto;
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* Floating particles */
+    .particles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0;
+      animation: float 8s infinite;
+    }
+    @keyframes float {
+      0%, 100% { opacity: 0; transform: translateY(0) scale(1); }
+      50% { opacity: 0.4; transform: translateY(-80px) scale(1.5); }
+    }
+
+    @media (max-width: 600px) {
+      .links { flex-direction: column; align-items: center; }
+      .links a { width: 100%; max-width: 240px; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <div class="particles" id="particles"></div>
+
+  <div class="container">
+    <h1 class="logo">octanepixels</h1>
+    <p class="tagline">building things that work</p>
+
+    <div class="links">
+      <a href="https://github.com/octanepixels" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://gitlab.ci.motional.com/Julienne.Abul" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 01-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 014.82 2a.43.43 0 01.58 0 .42.42 0 01.11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0118.6 2a.43.43 0 01.58 0 .42.42 0 01.11.18l2.44 7.51L23 13.45a.84.84 0 01-.35.94z"/></svg>
+        GitLab
+      </a>
+    </div>
+
+    <div class="divider"></div>
+    <p class="mono">las vegas, nv</p>
+  </div>
+
+  <script>
+    // Generate floating particles
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 20; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.top = Math.random() * 100 + '%';
+      p.style.animationDelay = Math.random() * 8 + 's';
+      p.style.animationDuration = (6 + Math.random() * 6) + 's';
+      container.appendChild(p);
+    }
+  </script>
+</body>
+</html>
