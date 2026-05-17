@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>octanepixels</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -16,6 +16,9 @@
       --muted: #5a5a72;
       --accent: #6c5ce7;
       --green: #00d2a0;
+      --fire1: #ff4500;
+      --fire2: #ff8c00;
+      --fire3: #ffd700;
     }
     body {
       font-family: 'Inter', -apple-system, sans-serif;
@@ -29,7 +32,6 @@
       overflow: hidden;
     }
 
-    /* Animated gradient background */
     .bg-gradient {
       position: fixed;
       inset: 0;
@@ -40,7 +42,6 @@
         radial-gradient(ellipse 40% 50% at 10% 60%, rgba(108,92,231,0.04) 0%, transparent 50%);
     }
 
-    /* Noise texture */
     .bg-gradient::after {
       content: '';
       position: absolute;
@@ -57,14 +58,94 @@
     }
 
     .logo {
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, var(--text) 0%, var(--muted) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(1.5rem, 5vw, 3rem);
+      margin-bottom: 1.5rem;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0;
+      image-rendering: pixelated;
+    }
+
+    .logo span { color: var(--text); }
+
+    .logo .burning {
+      position: relative;
+      display: inline-block;
+      color: var(--fire2);
+      text-shadow: 0 0 4px var(--fire1), 0 0 12px var(--fire2), 0 0 20px rgba(255,69,0,0.4);
+      animation: burn-pulse 1.5s ease-in-out infinite;
+    }
+
+    .logo .burning::before,
+    .logo .burning::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 80%;
+      width: 4px;
+      height: 4px;
+      background: var(--fire3);
+      border-radius: 0;
+      image-rendering: pixelated;
+    }
+
+    .logo .burning::before {
+      animation: ember 0.8s infinite;
+      transform: translateX(-6px);
+    }
+    .logo .burning::after {
+      animation: ember 1.1s infinite 0.3s;
+      transform: translateX(4px);
+    }
+
+    /* Pixel fire particles above the O */
+    .fire-container {
+      position: absolute;
+      bottom: 70%;
+      left: 0;
+      right: 0;
+      height: 40px;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .fire-pixel {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      image-rendering: pixelated;
+      animation: rise 0.9s infinite;
+    }
+
+    @keyframes burn-pulse {
+      0%, 100% { 
+        color: #ff6a00;
+        text-shadow: 0 0 4px #ff4500, 0 0 10px #ff8c00, 0 0 18px rgba(255,69,0,0.3);
+      }
+      25% { 
+        color: #ffd700;
+        text-shadow: 0 0 6px #ff8c00, 0 0 14px #ffd700, 0 0 22px rgba(255,140,0,0.4);
+      }
+      50% { 
+        color: #ff4500;
+        text-shadow: 0 0 4px #ff2200, 0 0 12px #ff4500, 0 0 20px rgba(255,69,0,0.5);
+      }
+      75% { 
+        color: #ff8c00;
+        text-shadow: 0 0 5px #ff6a00, 0 0 11px #ff8c00, 0 0 19px rgba(255,100,0,0.35);
+      }
+    }
+
+    @keyframes ember {
+      0% { opacity: 1; transform: translateX(-6px) translateY(0) scale(1); background: #ffd700; }
+      50% { opacity: 0.8; background: #ff8c00; }
+      100% { opacity: 0; transform: translateX(-6px) translateY(-20px) scale(0.5); background: #ff4500; }
+    }
+
+    @keyframes rise {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-30px) scale(0.3); }
     }
 
     .tagline {
@@ -104,11 +185,7 @@
       box-shadow: 0 8px 24px rgba(108,92,231,0.1);
     }
 
-    .links a svg {
-      width: 18px;
-      height: 18px;
-      opacity: 0.7;
-    }
+    .links a svg { width: 18px; height: 18px; opacity: 0.7; }
 
     .divider {
       width: 40px;
@@ -124,7 +201,6 @@
       letter-spacing: 0.05em;
     }
 
-    /* Floating particles */
     .particles {
       position: fixed;
       inset: 0;
@@ -156,7 +232,11 @@
   <div class="particles" id="particles"></div>
 
   <div class="container">
-    <h1 class="logo">octanepixels</h1>
+    <h1 class="logo">
+      <span class="burning" id="burning-o">o
+        <div class="fire-container" id="fire-container"></div>
+      </span><span>ctanepixels</span>
+    </h1>
     <p class="tagline">building things that work</p>
 
     <div class="links">
@@ -171,7 +251,7 @@
   </div>
 
   <script>
-    // Generate floating particles
+    // Background particles
     const container = document.getElementById('particles');
     for (let i = 0; i < 20; i++) {
       const p = document.createElement('div');
@@ -182,6 +262,26 @@
       p.style.animationDuration = (6 + Math.random() * 6) + 's';
       container.appendChild(p);
     }
+
+    // Pixel fire on the O
+    const fireContainer = document.getElementById('fire-container');
+    const fireColors = ['#ffd700', '#ff8c00', '#ff6a00', '#ff4500', '#ff2200'];
+
+    function spawnFirePixel() {
+      const pixel = document.createElement('div');
+      pixel.className = 'fire-pixel';
+      pixel.style.left = (Math.random() * 100) + '%';
+      pixel.style.bottom = '0';
+      pixel.style.background = fireColors[Math.floor(Math.random() * fireColors.length)];
+      pixel.style.animationDuration = (0.4 + Math.random() * 0.6) + 's';
+      pixel.style.width = (3 + Math.random() * 3) + 'px';
+      pixel.style.height = pixel.style.width;
+      pixel.style.boxShadow = `0 0 3px ${pixel.style.background}`;
+      fireContainer.appendChild(pixel);
+      setTimeout(() => pixel.remove(), 1000);
+    }
+
+    setInterval(spawnFirePixel, 80);
   </script>
 </body>
 </html>
